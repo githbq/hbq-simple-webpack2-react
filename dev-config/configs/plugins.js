@@ -51,7 +51,7 @@ if (__DEV__) {
             template: TEMPLATE_PATH,
             inject: 'body',
             chunks, //选定需要插入的chunk名,
-            title: globalConfig.name,
+            title: globalConfig.title,
             __DEV__: __DEV__,
             port: devServer.port,
             // HtmlWebpackPlugin自己有一个favicon属性, 但用起来有点问题, 所以自己重新搞个favIcon属性
@@ -82,7 +82,7 @@ if (__DEV__) {
             template: TEMPLATE_PATH,
             inject: 'body',
             chunks, //选定需要插入的chunk名,
-            title: globalConfig.name,
+            title: globalConfig.title,
             __DEV__: __DEV__,
             favIcon: globalConfig.favicon,
             chunksSortMode: 'dependency'
@@ -111,7 +111,7 @@ if (__DEV__) {
                 // 提取出出现多次但是没有定义成变量去引用的静态值
                 reduce_vars: true,
             }
-        }), 
+        }),
         //提取Loader定义到同一地方
         new webpack.LoaderOptionsPlugin({
             minimize: true,
