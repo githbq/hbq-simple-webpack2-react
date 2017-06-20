@@ -8,7 +8,7 @@
 
 ### 生产模式 资源生成
 
-> npm run dist:prod
+> npm run build:prod
 
 ### 目录结构
 

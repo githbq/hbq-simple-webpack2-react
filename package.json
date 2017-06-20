@@ -13,8 +13,8 @@
         "start": "better-npm-run start",
         "clean": "better-npm-run remove",
         "open:dist": "lite-server --config \"./dev-config/lite-server-config.js\" ",
-        "dist:dev": "better-npm-run dist:dev",
-        "dist:prod": "better-npm-run dist:prod",
+        "build:dev": "better-npm-run build:dev",
+        "build:prod": "better-npm-run build:prod",
         "tree:dir": "treee -l 2 --ignore node_modules/,.git/"
     },
     "betterScripts": {
@@ -31,13 +31,13 @@
                 "IS_PROXY": true
             }
         },
-        "dist:dev": {
+        "build:dev": {
             "command": "better-npm-run remove && webpack --config \"./dev-config/webpack.config.js\" --progress --colors --display-error-details",
             "env": {
                 "NODE_ENV": "development"
             }
         },
-        "dist:prod": {
+        "build:prod": {
             "command": "better-npm-run remove && webpack --config \"./dev-config/webpack.config.js\" --progress --colors --display-error-details",
             "env": {
                 "NODE_ENV": "production"
