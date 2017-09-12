@@ -9,6 +9,7 @@ const babelLoaderConfig = {
     presets: ['latest', 'stage-0', 'react'], // 开启ES6、部分ES7、react特性, preset相当于预置的插件集合
     plugins: []
 };
+const postCSSConfig = JSON.stringify(require('./utils').postCSSConfig);
 let rules = [ // 定义各种loader  
     {
         test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif|mp4|webm)$/,
@@ -23,50 +24,11 @@ let rules = [ // 定义各种loader
         exclude: /(node_modules)/,
         enforce: 'pre'
     },
-    // {
-    //     test: /\.(less|css)$/,
-    //     use: [
-    //         { loader: 'style-loader' },
-    //         { loader: 'css-loader' },
-    //         { loader: 'postcss-loader' },
-    //         {
-    //             loader: 'less-loader',
-    //             options: {
-    //                 sourceMap: true,
-    //                 modifyVars: lessLoaderVars
-    //             }
-    //         }
-    //     ]
-    // },
-    {
-        test: /\.(less|css)$/,
-        // use: ExtractTextPlugin.extract({
-        use: [
-                { loader: 'style-loader', options: { sourceMap: false } }, //extract 时需要注释
-                {
-
-                    loader: 'css-loader',
-                    options: {
-                        importLoaders: 3,
-                        minimize: !__DEV__,
-                        // Even if disabled sourceMaps gets generated
-                        sourceMap: false
-                    }
-                },
-                {
-                    loader: 'postcss-loader',
-                    query: JSON.stringify(require('./utils').postCSSConfig)
-                },
-                {
-                    loader: 'less-loader',
-                    options: {
-                        modifyVars: lessLoaderVars,
-                        sourceMap: false
-                    }
-                }
-            ]
-            // })
-    }
+    ...require('./rulesOfCss')({
+        __DEV__,
+        lessLoaderVars,
+        postCSSConfig
+    }, false, !__DEV__)
 ];
 
 if (__DEV__) {
@@ -87,13 +49,13 @@ if (__DEV__) {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules)/,
         use: [{
-                loader: 'babel-loader',
-                options: babelLoaderConfig,
-            },
-            {
-                loader: 'strip-loader',
-                options: { strip: ['logger.info', 'logger.debug', 'console.log', 'console.debug'] }
-            }
+            loader: 'babel-loader',
+            options: babelLoaderConfig,
+        },
+        {
+            loader: 'strip-loader',
+            options: { strip: ['logger.info', 'logger.debug', 'console.log', 'console.debug'] }
+        }
         ]
     });
 }

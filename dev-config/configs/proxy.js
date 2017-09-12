@@ -1,10 +1,10 @@
-let { apiUrl } = require('./globalConfig');
+let { apiUrl, isWebpackDevServer } = require('./globalConfig');
 const { __DEV__ } = require('./constants');
 /**
  * 反向代理配置
  */
 if (apiUrl && __DEV__) {
-    console.log(`\n######################proxy to ${apiUrl}######################\n`);
+    isWebpackDevServer && console.log(`\n######################proxy to ${apiUrl}######################\n`);
     module.exports = {
         // URL 匹配规则
         '/__api__/': {
