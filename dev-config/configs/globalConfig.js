@@ -8,10 +8,8 @@ const { APPS_PATH } = require('./constants')
 const srcRelative = pathTool.relative.bind(pathTool, APPS_PATH)
 const htmlPaths = Object.keys(templateObject).map(n => srcRelative(templateObject[n]))
 
-console.log(`entryHtmlPathsentryHtmlPathsentryHtmlPathsentryHtmlPaths`, htmlPaths)
-
 module.exports = {
-  htmlPaths,
+  htmlPaths: htmlPaths.filter(n => !/index\.(pug|html)/.test(n)),
   title: 'react-boilerplate',
   apiUrl: `http://localhost:3604`, //如果配了这个  就会走后端的反向代理
   favicon: '/assets/favicon.ico',
