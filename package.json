@@ -12,7 +12,7 @@
     "scripts": {
         "start": "better-npm-run start",
         "clean": "better-npm-run remove",
-        "open:dist": "lite-server --config \"./dev-config/lite-server-config.js\" ",
+        "open:dist": "lite-server --config ./dev-config/lite-server-config.js ",
         "build": "npm run build:dev",
         "build:dev": "better-npm-run build:dev",
         "build:prod": "better-npm-run build:prod",
@@ -26,20 +26,20 @@
             "command": "rimraf dist"
         },
         "dev": {
-            "command": "webpack-dev-server --config \"./dev-config/webpack.config.js\" --progress --colors  --hot ",
+            "command": "webpack-dev-server --config ./dev-config/webpack.config.js --progress --hot ",
             "env": {
                 "NODE_ENV": "development",
                 "IS_PROXY": true
             }
         },
         "build:dev": {
-            "command": "better-npm-run remove && webpack --config \"./dev-config/webpack.config.js\" --progress --colors --display-error-details",
+            "command": "better-npm-run remove && webpack --config ./dev-config/webpack.config.js --progress --display-error-details",
             "env": {
                 "NODE_ENV": "development"
             }
         },
         "build:prod": {
-            "command": "better-npm-run remove && webpack --config \"./dev-config/webpack.config.js\" --progress --colors --display-error-details",
+            "command": "better-npm-run remove && webpack --config ./dev-config/webpack.config.js --progress --display-error-details",
             "env": {
                 "NODE_ENV": "production"
             }
