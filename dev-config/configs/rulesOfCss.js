@@ -28,12 +28,12 @@ module.exports = ({ lessLoaderVars, __DEV__, postCSSConfig }, isAntCssModule = t
             modifyVars: lessLoaderVars
         }
     }
-    const stylusLoader = {
-        loader: 'stylus-loader',
-        options: {
-            options: {},
-        }
-    }
+    // const stylusLoader = {
+    //     loader: 'stylus-loader',
+    //     options: {
+    //         options: {},
+    //     }
+    // }
     if (!extract) {
         ExtractTextPlugin = {
             extract: ({ use }) => {
@@ -58,7 +58,7 @@ module.exports = ({ lessLoaderVars, __DEV__, postCSSConfig }, isAntCssModule = t
                             }
                         }
                     },
-                    stylusLoader
+                    // stylusLoader
                 ]
             })
         },
@@ -89,7 +89,7 @@ module.exports = ({ lessLoaderVars, __DEV__, postCSSConfig }, isAntCssModule = t
                             }
                         }
                     },
-                    stylusLoader
+                    // stylusLoader
                 ]
             })
         }
@@ -105,7 +105,7 @@ module.exports = ({ lessLoaderVars, __DEV__, postCSSConfig }, isAntCssModule = t
                     cssLoader,
                     postCSSLoader,
                     lessLoader,
-                    stylusLoader
+                    // stylusLoader
                 ]
             })
         }]

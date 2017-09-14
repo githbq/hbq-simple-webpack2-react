@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import "../util/flexible"
+import "@/util/flexible"
 
 import '@/common/common.less';
 import '@/common/mobile-reset.less';

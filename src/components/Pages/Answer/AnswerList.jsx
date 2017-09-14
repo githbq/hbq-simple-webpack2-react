@@ -1,5 +1,5 @@
 import React from 'react';
-import List from './../../Common/List';
+import List from '@/components/common/List';
 
 import './AnswerList.less'
 export default class AnswerList extends React.Component {

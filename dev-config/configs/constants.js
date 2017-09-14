@@ -8,6 +8,8 @@ const ROOT_PATH = pathTool.resolve(__dirname, '..', '..')
 const root = pathTool.join.bind(pathTool, ROOT_PATH);
 //前端目录
 const APP_PATH = root('src') // __dirname 中的src目录，以此类推
+//多页面目录
+const APPS_PATH = root('src', 'apps')
 //构建生成目录
 const BUILD_PATH = root('dist')
 //资源URL前缀
@@ -20,4 +22,4 @@ const __DEV__ = NODE_ENV === 'development'
 const TEMPLATE_PATH = root('dev-config/index.template.html')
 const TEMPLATE_PATH_PUG = root('dev-config/index.template.pug')
 
-module.exports = { root, pathTool, TEMPLATE_PATH_PUG, TEMPLATE_PATH, PUBLIC_PATH, ROOT_PATH, APP_PATH, BUILD_PATH, NODE_ENV, __DEV__ }
+module.exports = { root, pathTool, APPS_PATH, TEMPLATE_PATH_PUG, TEMPLATE_PATH, PUBLIC_PATH, ROOT_PATH, APP_PATH, BUILD_PATH, NODE_ENV, __DEV__ }

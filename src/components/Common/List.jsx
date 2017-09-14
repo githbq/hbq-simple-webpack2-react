@@ -5,7 +5,7 @@ import ListItem from './ListItem';
 import MsgItem from './MsgItem'
 import LoadPage from './LoadPage'
 import Loading from './Loading';
-import Toast from './../Toast/Toast';
+import Toast from '@/components/Toast/Toast';
 export default class List extends React.Component {
     static defaultProps = {
         source: ''
@@ -33,7 +33,7 @@ export default class List extends React.Component {
         let { listData } = this.state;
         this.setLoadingStatus(0);
         Ajax.getJSON(this.props.url, this.pageParam).then((rst) => {
-            /* Ajax.getJSON('/src/components/Common/test1.json').then((rst) => {*/
+            /* Ajax.getJSON('/assets/test1.json').then((rst) => {*/
             let loadingStatus = 1;
             if (rst.code === -1) {
                 loadingStatus = 5;
@@ -179,7 +179,7 @@ export default class List extends React.Component {
     //跳转到其他页面
     loadPageToOther = () => {
         let url =this.props.source == "question" ? "//wen.58.com/questionnaire/ask" : "//wen.58.com/questionnaire/topic/703312445956419584",
-             broswer = window.WBAPP ? "zhuazhan" : "";    
+             broswer = window.WBAPP ? "zhuazhan" : "";
         LoadPage(url,broswer,false)
     }
     //设置加载状态

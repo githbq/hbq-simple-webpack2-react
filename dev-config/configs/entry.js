@@ -47,6 +47,7 @@ apps.forEach(n => {
 })
 console.log('entryObject', color.green(JSON.stringify(entryObject)))
 module.exports = {
+  templateObject,
   //只包含入口tsx
   apps: {
     index: './src/index',

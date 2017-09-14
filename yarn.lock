@@ -67,6 +67,12 @@ after@0.8.1:
   version "0.8.1"
   resolved "https://registry.npmjs.org/after/-/after-0.8.1.tgz#ab5d4fb883f596816d3515f8f791c0af486dd627"
 
+ajax-promise-simple@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.npmjs.org/ajax-promise-simple/-/ajax-promise-simple-1.1.2.tgz#44fa22683a9bbcd846128144cfbb37b114416afc"
+  dependencies:
+    promise "^7.1.1"
+
 ajv-keywords@^1.0.0, ajv-keywords@^1.1.1:
   version "1.5.1"
   resolved "https://registry.npmjs.org/ajv-keywords/-/ajv-keywords-1.5.1.tgz#314dd0a4b3368fad3dfcdc54ede6171b886daf3c"

@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames'
 import ajax from 'ajax-promise-simple';
-import LoadPage from '../../../Common/LoadPage'
+import LoadPage from '@/components/common/LoadPage'
 import './ContentItem.less'
 
 export default class ContentItem extends React.Component {

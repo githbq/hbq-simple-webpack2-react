@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
-import LoadPage from '../../../Common/LoadPage'
+import LoadPage from '@/components/common/LoadPage'
 
 import './TabItem.less'
 
@@ -13,7 +13,7 @@ export default class extends Component {
             } catch (e) { }
         LoadPage(data.link, browser, false)
     }
-    
+
     render() {
         const { data, browser } = this.props;
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import className from 'classnames';
-import LoadPage from '../../../Common/LoadPage'
+import LoadPage from '@/components/common/LoadPage'
 
 import './FooterItem.less';
 export default class FooterItem extends React.Component {

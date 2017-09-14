@@ -1,5 +1,5 @@
 import React from 'react';
-import List from './../../Common/List';
+import List from '@/components/common/List';
 
 import './ConcernList.less'
 export default class ConcernList extends React.Component {
