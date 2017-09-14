@@ -14,7 +14,7 @@ const pug = require('../compiler/pug')
 const { pathTool, TEMPLATE_PATH, TEMPLATE_PATH_PUG, PUBLIC_PATH, root, ROOT_PATH, APP_PATH, BUILD_PATH, NODE_ENV, __DEV__ } = require('./constants');
 const devServer = require('./devServer');
 let chunks = ['vendor', 'common'];
-const CompressionPlugin = require('compression-webpack-plugin');
+// const CompressionPlugin = require('compression-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 
 const entry = require('./entry')
@@ -120,13 +120,13 @@ if (__DEV__) {
 } else {
   plugins = plugins.concat([
     ...getHtmlPlugins(__DEV__),
-    new CompressionPlugin({
-      asset: "[path].gz[query]",
-      algorithm: "gzip",
-      test: /\.js$|\.css$|\.html$/,
-      threshold: 10240,
-      minRatio: 0,
-    }),
+    // new CompressionPlugin({
+    //   asset: "[path].gz[query]",
+    //   algorithm: "gzip",
+    //   test: /\.js$|\.css$|\.html$/,
+    //   threshold: 10240,
+    //   minRatio: 0,
+    // }),
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: true,
       // 最紧凑的输出
