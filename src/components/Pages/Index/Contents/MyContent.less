@@ -1,0 +1,26 @@
+@import '~@/common/rem.less';
+.answer-contain {
+    li {
+        border-bottom: 1px solid @borderColor;
+    }
+    li:last-child {
+        border: none;
+    }
+    .msg-notification {
+        margin: 20 * @px auto;
+        border: none;
+        &.newMsg .content-name {
+            position: relative;
+            &::before {
+                position: absolute;
+                top: 0;
+                right: -11px;
+                content: "";
+                width: 6px;
+                height: 6px;
+                border-radius: 6px;
+                background-color: #ff6d4d;
+            }
+        }
+    }
+}

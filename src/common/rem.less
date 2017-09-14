@@ -1,0 +1,17 @@
+@browser-default-font-size: 750 / 10;
+@px: 1 / @browser-default-font-size * 1rem;
+
+.circle(@px) {
+  width: @px;
+  height: @px;
+  border-radius: 100%;
+}
+
+.bgImg(@url) {
+  background-image: url(@url);
+  .webp &{
+    background-image: url("@{url}?t=5");
+  }
+}
+
+@borderColor : #e0e0e0;

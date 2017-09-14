@@ -1,0 +1,49 @@
+@import '~@/common/rem.less';
+.answer-list-item {
+    margin-top: 19 * @px;
+    background-color: #fff;
+    padding: 32 * @px 54 * @px 32 * @px 42 * @px;
+    &:first-child {
+        margin-top: 0;
+    }
+    .audit-state {
+        font-size: 30 * @px;
+        line-height: 30 * @px;
+        color: #1f83db;
+        &.nopass {
+            color: #f00808;
+        }
+        &.waiting {
+            color: #1f83db;
+        }
+        &.pass {
+            color: #1db319;
+        }
+    }
+    .title {
+        margin-top: 26 * @px;
+        font-size: 32 * @px;
+        line-height: 42 * @px;
+        color: #000;
+    }
+    .content {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-top: 24 * @px;
+        font-size: 30 * @px;
+        line-height: 33 * @px;
+        color: #666;
+    }
+    .desc {
+        margin-top: 26 * @px;
+        font-size: 26 * @px;
+        color: #b1b1b1;
+        overflow: hidden;
+        .anwser-time {
+            float: right;
+        }
+    }
+}

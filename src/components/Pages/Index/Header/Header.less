@@ -1,0 +1,36 @@
+@import '~@/common/rem.less';
+.head-contain {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 193 * @px;
+    background-color: #fff;
+    box-sizing: border-box;
+    .head-img {
+        margin: 0 33 * @px;
+        height: 132 * @px;
+        width: 132 * @px;
+        border-radius: 100%;
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 100%;
+        }
+    }
+    .name-zancount {
+        flex: 1;
+        .name {
+            font-size: 32 * @px;
+            line-height: 32 * @px;
+            color: #000;
+            padding-bottom: 15 * @px;
+            border-bottom: 1px solid #ebebeb;
+        }
+        .zancount {
+            margin-top: 15 * @px;
+            font-size: 26 * @px;
+            line-height: 26 * @px;
+            color: #a8a8a8;
+        }
+    }
+}

@@ -1,0 +1,33 @@
+@import '~@/common/rem.less';
+.content-item {
+    position: relative;
+    height: 32 * @px;
+    font-size: 32 * @px;
+    line-height: 32 * @px;
+    padding: 37 * @px 40 * @px;
+    background-color: #fff;
+    color: #000;
+    &::after {
+        position: absolute;
+        content: "";
+        width: 18 * @px;
+        height: 18 * @px;
+        border-top: 4 * @px solid #ccc;
+        border-right: 4 * @px solid #ccc;
+        transform: rotate3d(0, 0, 1, 45deg);
+        top: 0;
+        right: 40 * @px;
+        bottom: 0;
+        margin: auto;
+    }
+    .content-num {
+        font-size: 30 * @px;
+        color: #a8a8a8;
+        // position: absolute;
+        // top: 30* @px;
+        // right: 95 * @px;
+        float: right;
+        margin-right: 50 *@px;
+        left: 215 * @px;
+    }
+}

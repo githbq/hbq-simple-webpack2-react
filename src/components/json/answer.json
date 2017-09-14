@@ -1,0 +1,36 @@
+{
+    "data": [
+        {
+            "answerid": "761671717676351488",
+            "answer": "我考虑他问题解决具体",
+            "userId": "34608136388875",
+            "thirdid": "oHCqjjtKdfVaqAw7Ud5OaFLHbf20",
+            "agree": 0,
+            "ugcInfoId": "761671717730877440",
+            "id": "761642811980218368",
+            "question": "昆明哪里招KTV服务员，男的？",
+            "questiondetail": "",
+            "checkinfoId": "0",
+            "checkReason": "",
+            "checkStatus": 6001,
+            "time": "2分钟前"
+        },
+        {
+            "answerid": "761671649049317376",
+            "answer": "考虑考虑克隆空间咯嘛",
+            "userId": "34608136388875",
+            "thirdid": "oHCqjjtKdfVaqAw7Ud5OaFLHbf20",
+            "agree": 0,
+            "ugcInfoId": "761671649108037632",
+            "id": "744296125612130304",
+            "question": "无工作经验应如何求职必胜客服务员？",
+            "questiondetail": "",
+            "checkinfoId": "0",
+            "checkReason": "",
+            "checkStatus": 6001,
+            "time": "2分钟前"
+        }
+    ],
+    "msg": "empty",
+    "code": 0
+}

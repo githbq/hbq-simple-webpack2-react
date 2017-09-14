@@ -1,0 +1,47 @@
+@import '~@/common/rem.less';
+.alert-wrap{
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index:999999;
+    display: none;
+    background-color: rgba(51,51,51,0.3);
+    .alert{
+        position: absolute;
+        top:50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        width: 480 * @px;
+        border: 1px solid #e0e0e0;
+        color: #333;
+        background-color: #fff;
+        border-radius: 10 * @px;
+        .alert-content{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 150 * @px;
+            padding:20 * @px;
+            font-size: 28 * @px;
+            line-height: 40 * @px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .alert-btn{
+            display: flex;
+            height: 68 * @px;
+            width: 100%;
+            .bottom-btn{
+                height: 100%;
+                font-size: 24 * @px;
+                flex: 1;
+                line-height: 68 * @px;
+                text-align: center;
+            }
+            .cancle{
+                border-left: 1px solid #eaeaea;
+            }
+        }
+    }
+}

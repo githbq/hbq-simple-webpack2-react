@@ -1,0 +1,35 @@
+@import '~@/common/rem.less';
+.notify-list-item {
+    margin-top: 19 * @px;
+    background-color: #fff;
+    padding: 32 * @px 54 * @px 32 * @px 42 * @px;
+    .notify-item-result {
+        font-size: 30 * @px;
+        line-height: 30 * @px;
+        color: #1f83db;
+        &.set-red {
+            color: #f00808;
+        }
+        &.set-green {
+            color: #1db319;
+        }
+    }
+    .notify-info {
+        margin-top: 26 * @px;
+        font-size: 32 * @px;
+        line-height: 42 * @px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: #000;
+    }
+    .notify-info-tip {
+        margin-top: 26 * @px;
+        font-size: 26 * @px;
+        color: #b1b1b1;
+        overflow: hidden;
+        .notify-time {
+            float: right;
+        }
+    }
+}
