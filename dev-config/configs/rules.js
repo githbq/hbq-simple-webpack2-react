@@ -7,7 +7,7 @@ const lessLoaderVars = {};
 const { getCssRules } = require('./rules.css')
 // 将babel-loader的配置独立出来, 因为webpack的限制: http://stackoverflow.com/questions/33117136/how-to-add-a-query-to-a-webpack-loader-with-multiple-loaders
 const babelLoaderConfig = {
-  presets: ['latest', 'stage-0', 'react'], // 开启ES6、部分ES7、react特性, preset相当于预置的插件集合
+  presets: ['env', 'stage-0', 'react'], // 开启ES6、部分ES7、react特性, preset相当于预置的插件集合
   plugins: [
     ['import', { libraryName: 'antd', style: true }],
     'add-module-exports',
