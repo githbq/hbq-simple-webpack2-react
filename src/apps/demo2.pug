@@ -1,0 +1,20 @@
+
+doctype html
+html
+  head
+      title 页面列表
+      if htmlWebpackPlugin.options.data.favIcon
+        link(rel="shorticon icon" type="image/x-icon" href=htmlWebpackPlugin.options.data.favIcon)
+      meta(charset="utf-8")
+      meta(http-equiv="X-UA-Compatible" content="IE=edge")
+      meta(name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
+  body
+    div.main-container
+      div.header #{htmlWebpackPlugin.options.data.hello}
+      div.content
+        ul.html-container
+          each path in htmlWebpackPlugin.options.data.htmlPaths
+            li.html-item
+              a(href=path target="main-frame") #{path}
+              a.new(href=path target="blank" title="点击打开新页面") new
+

@@ -10,10 +10,10 @@ const appPath = './src/apps'
 const basePath = `${appPath}/**`
 const apps = globby.sync(
   [
-    `${basePath}/*.tsx`,
+    `${basePath}/*.jsx`,
     `${basePath}/*.html`,
     `${basePath}/*.pug`,
-    `!${appPath}/index.tsx`,
+    `!${appPath}/index.jsx`,
     `!${basePath}/_*/**/*`,
     `!${basePath}/_*.*`,
     `!${basePath}/*.test.*`,
