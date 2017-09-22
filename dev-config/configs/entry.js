@@ -10,10 +10,10 @@ const appPath = './src/apps'
 const basePath = `${appPath}/**`
 const apps = globby.sync(
   [
-    `${basePath}/*.jsx`,
+    `${basePath}/*.tsx`,
     `${basePath}/*.html`,
     `${basePath}/*.pug`,
-    `!${appPath}/index.jsx`,
+    `!${appPath}/index.tsx`,
     `!${basePath}/_*/**/*`,
     `!${basePath}/_*.*`,
     `!${basePath}/*.test.*`,
@@ -31,7 +31,8 @@ const templateObject = {}
 const regExt = /\.\w*$/
 //模板的后缀
 const templateSuffix = '-template'
-
+//模板的正则
+const regTemplate = /-template$/
 
 apps.forEach(n => {
   let key = pathTool.relative(`${APP_PATH}/apps`, n)
@@ -47,6 +48,12 @@ apps.forEach(n => {
 })
 console.log('entryObject', color.green(JSON.stringify(entryObject)))
 module.exports = {
+  entryObject,
+  templateObject,
+  regExt,
+  regTemplate,
+  templateSuffix,
+  regTemplate,
   //只包含入口tsx
   apps: {
     index: './src/index',

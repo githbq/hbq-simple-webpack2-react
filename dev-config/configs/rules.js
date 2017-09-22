@@ -4,6 +4,7 @@
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const { TEMPLATE_PATH, PUBLIC_PATH, ROOT_PATH, APP_PATH, BUILD_PATH, NODE_ENV, __DEV__ } = require('./constants');
 const lessLoaderVars = {};
+const { getCssRules } = require('./rules.css')
 // 将babel-loader的配置独立出来, 因为webpack的限制: http://stackoverflow.com/questions/33117136/how-to-add-a-query-to-a-webpack-loader-with-multiple-loaders
 const babelLoaderConfig = {
   presets: ['latest', 'stage-0', 'react'], // 开启ES6、部分ES7、react特性, preset相当于预置的插件集合
@@ -15,16 +16,23 @@ const babelLoaderConfig = {
 const postCSSConfig = JSON.stringify(require('./utils').postCSSConfig);
 let rules = [ // 定义各种loader
   {
+    test: /\.pug$/,
+    loader: 'pug-loader',
+    options: {
+      pretty: true
+    }
+  },
+  {
     test: /\.(js|jsx)$/,
     use: ['source-map-loader'],
     exclude: /(node_modules)/,
     enforce: 'pre'
   },
-  ...require('./rulesOfCss')({
+  ...getCssRules({
     __DEV__,
-    lessLoaderVars,
-    postCSSConfig
-  }, false, !__DEV__),
+    cssModules: false,
+    extract: !__DEV__
+  }),
   //files
   {
     test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
