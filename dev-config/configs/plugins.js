@@ -29,7 +29,7 @@ let plugins = [
   // 同时还会加上webpack的runtime相关代码
   new webpack.optimize.CommonsChunkPlugin({
     name: 'common',
-    filename: 'common.js',
+    filename: '/js/common.js',
     // 这个函数决定哪些模块会被放到vender.min.js中
     minChunks: module => /node_modules/.test(module.resource)
   }),
