@@ -23,7 +23,7 @@ let rules = [ // 定义各种loader
     }
   },
   {
-    test: /\.(js|jsx)$/,
+    test: /\.jsx?$/,
     use: ['source-map-loader'],
     exclude: /(node_modules)/,
     enforce: 'pre'
