@@ -9,7 +9,7 @@ const htmlPaths = Object.keys(entryObject).map(n => srcRelative(entryObject[n]) 
 
 module.exports = {
   htmlPaths: htmlPaths,
-  title: 'ts-react-boilerplate',
+  title: 'babel-react-boilerplate',
   apiUrl: `http://localhost:3604`, //如果配了这个  就会走后端的反向代理
   favicon: '/assets/favicon.ico',
   isWebpackDevServer,
