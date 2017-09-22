@@ -3,7 +3,7 @@
     [
       "env",
       {
-        "modules": false,
+        "modules": true,
         "targets": {
           "browsers": [
             "> 1%",
@@ -13,7 +13,8 @@
         }
       }
     ],
-    "stage-2"
+    "stage-2",
+    "react"
   ],
   "plugins": [
     "transform-runtime",
