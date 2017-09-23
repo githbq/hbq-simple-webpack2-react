@@ -14,11 +14,14 @@ const devServer = require('./devServer');
 let chunks = ['vendor', 'common'];
 // const CompressionPlugin = require('compression-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
+//在 vscode 上显示webpack进度 需要在vscode上安装插件webpack-progress
+const BitBarWebpackProgressPlugin = require('bitbar-webpack-progress-plugin')
 const ProgressPlugin = require('progress-webpack-plugin')
 
 const { getHtmlPlugins } = require('./plugins.html')
 
 let plugins = [
+  new BitBarWebpackProgressPlugin(),
   new ProgressPlugin(true),
   new FriendlyErrorsWebpackPlugin(),
   new webpack.BannerPlugin('This file is created by hbq'), // 生成文件时加上注释
