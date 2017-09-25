@@ -4,6 +4,7 @@ const { TEMPLATE_PATH, PUBLIC_PATH, ROOT_PATH, APP_PATH, BUILD_PATH, NODE_ENV, _
  */
 module.exports = {
   openPage: 'index.html',
+  host: '0.0.0.0',
   overlay: true,
   hot: true,
   open: true,
