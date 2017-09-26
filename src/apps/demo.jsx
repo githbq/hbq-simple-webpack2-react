@@ -23,8 +23,8 @@ class App extends React.Component {
           return (
             <Switch>
               <Route location={location} exact path="/" component={DemoRoute} />
-              <Route location={location} path="/aaa" component={DemoRoute} />
               <Route location={location} path="/aaa/:aaa" component={DemoRoute} />
+              <Route location={location} path="/aaa" component={DemoRoute2} />
               <Route location={location} path="/bbb" component={DemoRoute2} />
             </Switch>
           )
