@@ -5,7 +5,11 @@ import './index.less'
 import React, { PropTypes } from 'react'
 import DemoComponent from '@/components/Demo'
 export default class extends React.Component {
+  static contextTypes = {
+    router: React.PropTypes.object.isRequired
+  }
   render() {
+    console.log(this.context.router)
     return <div className="demo-route">
       <span>this is demo-route params:</span>
       <b>{JSON.stringify(this.props.match.params)}</b>
