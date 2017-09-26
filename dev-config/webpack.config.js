@@ -5,7 +5,7 @@ const configs = require('require-dir')('./configs')
 const { TEMPLATE_PATH, PUBLIC_PATH, ROOT_PATH, APP_PATH, BUILD_PATH, NODE_ENV, __DEV__ } = configs.constants
 
 //设置开发时源代码映射工具
-const devTool = __DEV__ ? 'cheap-module-source-map' : 'source-map'
+const devTool = __DEV__ ? 'inline-source-map' : 'source-map'
 const jsPrefixPath = 'js'
 module.exports = {
   devtool: devTool,
