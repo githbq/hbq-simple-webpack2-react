@@ -81,6 +81,7 @@ if (__DEV__) {
       beautify: false,
       // 删除所有的注释
       comments: false,
+      ie8: true,
       compress: {
         // 在UglifyJs删除没有用到的代码时不输出警告
         warnings: false,
