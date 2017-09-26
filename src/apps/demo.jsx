@@ -3,19 +3,40 @@
  */
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Router, Route, IndexRoute, hashHistory } from 'react-router'
+import { Route, Router } from 'react-router-dom'
 import fastClick from 'fastclick'
-//解决移动端300毫秒延迟
+import createHistory from 'history/createHashHistory'
 fastClick.attach(document.body)
+
+const history = createHistory()
+//解决移动端300毫秒延迟
+
 //页面
 import DemoRoute from '@/routes/Demo'
-// 路由表
-const routes = (
-  <Router history={hashHistory}>
-    {/*<IndexRoute component={DemoRoute} />*/}
-    <Route path="/" component={DemoRoute} />
-  </Router>
+import DemoRoute2 from '@/routes/Demo2'
+// 路由
+class App extends React.Component {
+  render() {
+    return (
+      <Router history={history}>
+        <Route render={({ location }) => {
+          return (
+            <div>
+              <Route location={location} exact path="/" component={DemoRoute} />
+              <Route location={location} exact path="/aaa" component={DemoRoute} />
+              <Route location={location} path="/aaa/:aaa" component={DemoRoute} />
+              <Route location={location} path="/bbb" component={DemoRoute2} />
+            </div>
+          )
+        }} />
+      </Router>
+    );
+  }
+}
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
 )
-ReactDOM.render(routes, document.getElementById('root'))
 
 
