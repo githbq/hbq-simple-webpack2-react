@@ -1,10 +1,10 @@
-# webpack2-react
+# webpack3 react15 react router 4
 
-## 启动命令   
+## 启动命令
 
 ### 开发模式 启动程序
 
-> npm start 
+> npm start
 
 ### 生产模式 资源生成
 
