@@ -1,22 +1,24 @@
 /**
  * 其他配置或工具
  */
-const autoprefixer = require('autoprefixer');
+const autoprefixer = require('autoprefixer')
+const px2rem = require('postcss-px2rem')
 
 //使用postcss作为默认的CSS编译器
 exports.postCSSConfig = [
-  autoprefixer({
-    browsers: [
-      'ie >= 9',
-      'ie_mob >= 10',
-      'ff >= 30',
-      'chrome >= 34',
-      'safari >= 7',
-      'opera >= 23',
-      'ios >= 7',
-      'android >= 4.4',
-      'bb >= 10'
-    ]
-  }),
-  require('postcss-flexibility')
-];
+    px2rem({ remUnit: 75 }),
+    autoprefixer({
+        browsers: [
+            'ie >= 9',
+            'ie_mob >= 10',
+            'ff >= 30',
+            'chrome >= 34',
+            'safari >= 7',
+            'opera >= 23',
+            'ios >= 7',
+            'android >= 4.4',
+            'bb >= 10'
+        ]
+    }),
+    require('postcss-flexibility')
+]

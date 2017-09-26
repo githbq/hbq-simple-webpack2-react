@@ -1,4 +1,4 @@
-const { TEMPLATE_PATH, PUBLIC_PATH, ROOT_PATH, APP_PATH, BUILD_PATH, NODE_ENV, __DEV__ } = require('./constants');
+const { TEMPLATE_PATH, PUBLIC_PATH, ROOT_PATH, APP_PATH, BUILD_PATH, NODE_ENV, __DEV__ } = require('./constants')
 /**
  * 开发服务配置
  */
@@ -25,4 +25,4 @@ module.exports = {
   noInfo: false, // set to false to see a list of every file being bundled.
   headers: { 'X-Custom-Header': 'yes' },
   proxy: require('./proxy')
-};
+}

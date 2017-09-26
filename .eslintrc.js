@@ -88,4 +88,4 @@ module.exports = {
     "react/sort-comp": 1,
     "react/wrap-multilines": 1
   }
-};
+}

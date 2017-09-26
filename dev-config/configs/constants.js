@@ -5,7 +5,7 @@ const pathTool = require('path')
 //根路径
 const ROOT_PATH = pathTool.resolve(__dirname, '..', '..')
 
-const root = pathTool.join.bind(pathTool, ROOT_PATH);
+const root = pathTool.join.bind(pathTool, ROOT_PATH)
 //前端目录
 const APP_PATH = root('src') // __dirname 中的src目录，以此类推
 const APPS_PATH = root('src', 'apps')

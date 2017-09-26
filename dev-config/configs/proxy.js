@@ -1,11 +1,11 @@
-let { apiUrl, isWebpackDevServer } = require('./globalConfig');
-const { __DEV__ } = require('./constants');
+let { apiUrl, isWebpackDevServer } = require('./globalConfig')
+const { __DEV__ } = require('./constants')
 const color = require('cli-color')
 /**
  * 反向代理配置
  */
 if (apiUrl && __DEV__) {
-    isWebpackDevServer && console.log(color.yellow(`\n######################proxy to apiUrl:${apiUrl}######################\n`));
+    isWebpackDevServer && console.log(color.yellow(`\n######################proxy to apiUrl:${apiUrl}######################\n`))
     module.exports = {
         // URL 匹配规则
         '/__api__/': {
@@ -17,5 +17,5 @@ if (apiUrl && __DEV__) {
             secure: false,
             changeOrigin: true,
         }
-    };
+    }
 }

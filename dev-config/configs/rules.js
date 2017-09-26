@@ -1,9 +1,9 @@
 /**
  * 文件处理
  */
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const { TEMPLATE_PATH, PUBLIC_PATH, ROOT_PATH, APP_PATH, BUILD_PATH, NODE_ENV, __DEV__ } = require('./constants');
-const lessLoaderVars = {};
+const ExtractTextPlugin = require("extract-text-webpack-plugin")
+const { TEMPLATE_PATH, PUBLIC_PATH, ROOT_PATH, APP_PATH, BUILD_PATH, NODE_ENV, __DEV__ } = require('./constants')
+const lessLoaderVars = {}
 const { getCssRules } = require('./rules.css')
 // 将babel-loader的配置独立出来, 因为webpack的限制: http://stackoverflow.com/questions/33117136/how-to-add-a-query-to-a-webpack-loader-with-multiple-loaders
 const babelLoaderConfig = {
@@ -12,8 +12,8 @@ const babelLoaderConfig = {
     ['import', { libraryName: 'antd', style: true }],
     'add-module-exports',
     'transform-runtime']
-};
-const postCSSConfig = JSON.stringify(require('./utils').postCSSConfig);
+}
+const postCSSConfig = JSON.stringify(require('./utils').postCSSConfig)
 let rules = [ // 定义各种loader
   {
     test: /\.pug$/,
@@ -58,7 +58,7 @@ let rules = [ // 定义各种loader
       name: 'fonts/[name].[hash:7].[ext]'
     }
   }
-];
+]
 
 if (__DEV__) {
   rules.push({
@@ -71,7 +71,7 @@ if (__DEV__) {
         options: Object.assign(babelLoaderConfig, { cacheDirectory: true })
       }
     ]
-  });
+  })
 } else {
   //生产环境
   rules.push({
@@ -86,6 +86,6 @@ if (__DEV__) {
       options: { strip: ['logger.info', 'logger.debug', 'console.log', 'console.debug'] }
     }
     ]
-  });
+  })
 }
-module.exports = rules;
+module.exports = rules

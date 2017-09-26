@@ -1,18 +1,18 @@
 /**
  * 插件配置
  */
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 //webpack-md5-hash不需要再使用了 https://sebastianblade.com/using-webpack-to-achieve-long-term-cache/
 // const WebpackMd5Hash = require('webpack-md5-hash')
-const utils = require('./utils');
-const globalConfig = require('./globalConfig');
-const { pathTool, TEMPLATE_PATH, TEMPLATE_PATH_PUG, PUBLIC_PATH, ROOT_PATH, APP_PATH, BUILD_PATH, NODE_ENV, __DEV__ } = require('./constants');
-const devServer = require('./devServer');
-let chunks = ['vendor', 'common'];
-// const CompressionPlugin = require('compression-webpack-plugin');
+const utils = require('./utils')
+const globalConfig = require('./globalConfig')
+const { pathTool, TEMPLATE_PATH, TEMPLATE_PATH_PUG, PUBLIC_PATH, ROOT_PATH, APP_PATH, BUILD_PATH, NODE_ENV, __DEV__ } = require('./constants')
+const devServer = require('./devServer')
+let chunks = ['vendor', 'common']
+// const CompressionPlugin = require('compression-webpack-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 //在 vscode 上显示webpack进度 需要在vscode上安装插件webpack-progress
 const BitBarWebpackProgressPlugin = require('bitbar-webpack-progress-plugin')
@@ -43,7 +43,7 @@ let plugins = [
   ]),
   // new ExtractTextPlugin('style/[name].[contenthash:8].css'),
   new ExtractTextPlugin('css/[name].css'),
-];
+]
 
 if (__DEV__) {
   plugins = plugins.concat([
@@ -64,7 +64,7 @@ if (__DEV__) {
     // new webpack.optimize.UglifyJsPlugin({
     //     sourceMap: true
     // })
-  ]);
+  ])
 } else {
   plugins = plugins.concat([
     ...getHtmlPlugins(__DEV__),
@@ -103,6 +103,6 @@ if (__DEV__) {
       }
     }),
     new webpack.optimize.AggressiveMergingPlugin() //Merge chunks
-  ]);
+  ])
 }
-module.exports = plugins;
+module.exports = plugins

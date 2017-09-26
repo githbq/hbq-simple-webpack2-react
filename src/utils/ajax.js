@@ -1,34 +1,34 @@
-import fetch from 'isomorphic-fetch';
-const prefix = __DEV__ ? '__api__' : '';
+import fetch from 'isomorphic-fetch'
+const prefix = __DEV__ ? '__api__' : ''
 //fetch api简单封装 自动加前缀 去掉第一个/
 //methods:GET, POST, PUT, DELETE, HEAD
 export default {
     fetch,
     //总请求方法
     request(url, options) {
-        let newUrl = this.urlFilter(url);
-        let defaultOptions = { credentials: 'include' };
+        let newUrl = this.urlFilter(url)
+        let defaultOptions = { credentials: 'include' }
         options = {...defaultOptions, ...options }
         return fetch(newUrl, options)
             .then((response) => {
-                options.success && options.success(response);
+                options.success && options.success(response)
                 if (response.ok) {
-                    return response.json();
+                    return response.json()
                 } else {
-                    let errorData = { status: response.status, message: response.statusText };
-                    console.log('requestError:', errorData);
-                    return errorData;
+                    let errorData = { status: response.status, message: response.statusText }
+                    console.log('requestError:', errorData)
+                    return errorData
                 }
             })
             .then((json) => {
-                console.log(url, json);
-                return json;
-            });
+                console.log(url, json)
+                return json
+            })
     },
     //get请求
     get(url, query, options) {
-        let newUrl = this.getQueryString(url, query);
-        return this.request(newUrl, { method: 'GET', ...options });
+        let newUrl = this.getQueryString(url, query)
+        return this.request(newUrl, { method: 'GET', ...options })
     },
     //form请求
     form(url, formDom, options) {
@@ -36,19 +36,19 @@ export default {
             method: 'POST',
             body: new FormData(formDom),
             ...options
-        });
+        })
     },
     //更新请求 post传参
     put(url, data, options) {
         return this.post(url, data, {
             method: 'PUT',
             ...options
-        });
+        })
     },
     //删除请求  get请求传参
     delete(url, query) {
-        let newUrl = this.getQueryString(url, query);
-        return this.request(newUrl, { method: 'DELETE' });
+        let newUrl = this.getQueryString(url, query)
+        return this.request(newUrl, { method: 'DELETE' })
     },
     //post 请求
     post(url, data, options) {
@@ -60,7 +60,7 @@ export default {
                 'Content-Type': 'application/json'
             },
             ...options
-        });
+        })
     },
     trim(str) {
         return str.replace(/(^\s*)|(\s*$)/g, '')
@@ -71,17 +71,17 @@ export default {
         if (prefix) {
             if (url.indexOf('/') === 0) {
                 //如果是绝对路径
-                url = `/${prefix}` + url;
+                url = `/${prefix}` + url
             } else {
-                url = `${prefix}/` + url;
+                url = `${prefix}/` + url
             }
         }
 
-        return url;
+        return url
     },
     //将对象数据组装成URL get请求串
     getQueryString(url, params) {
-        params = params || {};
+        params = params || {}
         let queryString = Object
             .keys(params)
             .map(k => {
@@ -92,15 +92,15 @@ export default {
                 }
                 return `${encodeURIComponent(k)}=${encodeURIComponent(params[k])}`
             })
-            .join('&');
+            .join('&')
         if (url) { //如果提供url则直接返回拼接好的URL 否则返回参数字符串
             if (url.indexOf('?') > 0) { //已经有参数了
-                url += `&${queryString}`;
+                url += `&${queryString}`
             } else if (queryString) {
-                url += `?${queryString}`;
+                url += `?${queryString}`
             }
-            return url;
+            return url
         }
-        return queryString;
+        return queryString
     }
-};
+}
