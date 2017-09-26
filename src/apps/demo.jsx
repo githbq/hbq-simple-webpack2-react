@@ -3,7 +3,7 @@
  */
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Route, Router } from 'react-router-dom'
+import { Route, Router, Switch } from 'react-router-dom'
 import fastClick from 'fastclick'
 import createHistory from 'history/createHashHistory'
 fastClick.attach(document.body)
@@ -21,12 +21,12 @@ class App extends React.Component {
       <Router history={history}>
         <Route render={({ location }) => {
           return (
-            <div>
+            <Switch>
               <Route location={location} exact path="/" component={DemoRoute} />
-              <Route location={location} exact path="/aaa" component={DemoRoute} />
+              <Route location={location} path="/aaa" component={DemoRoute} />
               <Route location={location} path="/aaa/:aaa" component={DemoRoute} />
               <Route location={location} path="/bbb" component={DemoRoute2} />
-            </div>
+            </Switch>
           )
         }} />
       </Router>
