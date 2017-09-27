@@ -11,6 +11,7 @@ export default class extends React.PureComponent {
         <h1 className="demo-component">
           this is demo-component
         </h1>
+        <div className="big-bg"></div>
       </div>
     )
   }
