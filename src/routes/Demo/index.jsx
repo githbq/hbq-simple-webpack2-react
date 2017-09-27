@@ -10,7 +10,6 @@ export default class extends React.Component {
     router: PropTypes.object.isRequired
   }
   render() {
-    debugger
     console.log(this.context.router)
     return <div className="demo-route">
       <span>this is demo-route params:</span>
