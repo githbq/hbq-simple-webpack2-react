@@ -1,10 +1,10 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
 import './index.less'
 
 /**
  * 组件demo
  */
-export default class extends React.PureComponent {
+export default class abc extends React.PureComponent {
   render() {
     return (
       <div>

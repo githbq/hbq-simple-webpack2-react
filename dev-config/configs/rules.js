@@ -1,12 +1,11 @@
 /**
  * 文件处理
  */
-const ExtractTextPlugin = require("extract-text-webpack-plugin")
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const { TEMPLATE_PATH, PUBLIC_PATH, ROOT_PATH, APP_PATH, BUILD_PATH, NODE_ENV, __DEV__ } = require('./constants')
 const lessLoaderVars = {}
 const { getCssRules } = require('./rules.css')
 
-const postCSSConfig = JSON.stringify(require('./utils').postCSSConfig)
 let rules = [ // 定义各种loader
   {
     test: /\.pug$/,
@@ -15,12 +14,19 @@ let rules = [ // 定义各种loader
       pretty: true
     }
   },
-  // {
-  //   test: /\.jsx?$/,
-  //   use: ['source-map-loader'],
-  //   exclude: /(node_modules)/,
-  //   enforce: 'pre'
-  // },
+  {
+    test: /\.jsx?$/,
+    use: [
+      {
+        loader: 'eslint-loader',
+        options: {
+          fix: true
+        }
+      }
+    ],
+    exclude: /(node_modules)/,
+    enforce: 'pre'
+  },
   ...getCssRules({
     __DEV__,
     cssModules: false,

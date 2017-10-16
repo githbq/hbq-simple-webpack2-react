@@ -53,8 +53,7 @@ if (__DEV__) {
     // new webpack.NoEmitOnErrorsPlugin(),
     new webpack.LoaderOptionsPlugin({
       options: {
-        context: '/',
-        postcss: utils.postCSSConfig
+        context: '/'
       }
     }),
     // new webpack.SourceMapDevToolPlugin(
@@ -99,8 +98,7 @@ if (__DEV__) {
       minimize: true,
       debug: false,
       options: {
-        context: '/',
-        postcss: utils.postCSSConfig
+        context: '/'
       }
     }),
     new webpack.optimize.AggressiveMergingPlugin() //Merge chunks

@@ -1,6 +1,7 @@
 /**
  * 程序的入口
  */
+import '@/common/main.less'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Route, Router, Switch } from 'react-router-dom'
@@ -18,24 +19,38 @@ import DemoRoute2 from '@/routes/Demo2'
 class App extends React.Component {
   render() {
     return (
-      <Router history={history}>
-        <Route render={({ location }) => {
+        <Router history={history}>
+            <Route render={({ location }) => {
           return (
-            <Switch>
-              <Route location={location} exact path="/" component={DemoRoute} />
-              <Route location={location} path="/aaa/:aaa" component={DemoRoute} />
-              <Route location={location} path="/aaa" component={DemoRoute2} />
-              <Route location={location} path="/bbb" component={DemoRoute2} />
-            </Switch>
+              <Switch>
+                  <Route component={DemoRoute}
+                      exact
+                      location={location}
+                      path="/"
+                  />
+                  <Route component={DemoRoute}
+                      location={location}
+                      path="/aaa/:aaa"
+                  />
+                  <Route component={DemoRoute2}
+                      location={location}
+                      path="/aaa"
+                  />
+                  <Route component={DemoRoute2}
+                      location={location}
+                      path="/bbb"
+                  />
+              </Switch>
           )
-        }} />
-      </Router>
-    );
+        }}
+            />
+        </Router>
+    )
   }
 }
 
 ReactDOM.render(
-  <App />,
+    <App />,
   document.getElementById('root')
 )
 

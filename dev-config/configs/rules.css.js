@@ -2,6 +2,7 @@
  * 因为css module设置比较复杂,单独分离出来
  */
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const { postCSSConfig } = require('./utils')
 let _ExtractTextPlugin = ExtractTextPlugin
 
 /**
@@ -21,7 +22,8 @@ module.exports.getCssRules = ({ __DEV__, cssModules = true, extract = true }) =>
   const postCSSLoader = {
     loader: 'postcss-loader',
     options: {
-      sourceMap: true
+      sourceMap: true,
+      plugins: postCSSConfig
     }
   }
   const cssLoader = {
@@ -68,7 +70,7 @@ module.exports.getCssRules = ({ __DEV__, cssModules = true, extract = true }) =>
           use: [
             ...(extract ? [] : [styleLoader]),
             cssLoader,
-            // postCSSLoader,
+            postCSSLoader,
             loader
           ]
         })

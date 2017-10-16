@@ -30,7 +30,7 @@ module.exports = {
     ]
   },
   "rules": {
-    "indent": [2, "tab"],
+    "indent": [0],
     "quotes": [2, "single"],
     "linebreak-style": [2, "unix"],
     "semi": [2, "never"],
@@ -56,17 +56,15 @@ module.exports = {
     "react/jsx-curly-spacing": 1,
     "react/jsx-equals-spacing": 1,
     "react/jsx-handler-names": 1,
-    "react/jsx-indent-props": 1,
-    "react/jsx-indent": 1,
+    // "react/jsx-indent-props": 1,
+    // "react/jsx-indent": 1,
     "react/jsx-key": 1,
     "react/jsx-max-props-per-line": 1,
     "react/jsx-no-bind": 1,
     "react/jsx-no-duplicate-props": 1,
-    "react/jsx-no-literals": 1,
+    "react/jsx-no-literals": 0,
     "react/jsx-no-undef": 1,
     "react/jsx-pascal-case": 1,
-    "react/jsx-quotes": 1,
-    "react/jsx-sort-prop-types": 1,
     "react/jsx-sort-props": 1,
     "react/jsx-uses-react": 1,
     "react/jsx-uses-vars": 1,
@@ -83,9 +81,7 @@ module.exports = {
     "react/prefer-es6-class": 1,
     "react/prop-types": 1,
     "react/react-in-jsx-scope": 1,
-    "react/require-extension": 1,
     "react/self-closing-comp": 1,
-    "react/sort-comp": 1,
-    "react/wrap-multilines": 1
+    "react/sort-comp": 1
   }
 }
