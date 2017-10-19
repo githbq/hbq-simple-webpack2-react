@@ -7,6 +7,7 @@ import React from 'react'
 import DemoComponent from '@/components/Demo'
 
 export default class Demo1 extends React.Component {
+
   // static propTypes = {
   //   match: PropTypes.object.isRequired
   // }
@@ -17,6 +18,9 @@ export default class Demo1 extends React.Component {
       <DemoComponent />
     </div>)
   }
+}
+Demo1.propTypes = {
+  match: PropTypes.Object
 }
 
 
