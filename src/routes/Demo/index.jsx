@@ -12,15 +12,10 @@ export default class Demo1 extends React.Component {
   //   match: PropTypes.object.isRequired
   // }
   render() {
-    (<div className="demo-route">
+    return (<div className="demo-route">
       <span>this is demo-route params:</span>
-      <b>{JSON.stringify(this.props.match.params)}</b>
       <DemoComponent />
     </div>)
   }
 }
-Demo1.propTypes = {
-  match: PropTypes.Object
-}
-
 

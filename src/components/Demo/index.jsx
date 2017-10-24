@@ -5,5 +5,9 @@ import './index.less'
  * 组件demo
  */
 export default class a extends React.PureComponent {
-  render() { }
+  render() {
+    return (
+      <div>Demo-component</div>
+    )
+  }
 }
