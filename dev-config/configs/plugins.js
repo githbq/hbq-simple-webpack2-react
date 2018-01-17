@@ -5,7 +5,7 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-//webpack-md5-hash不需要再使用了 https://sebastianblade.com/using-webpack-to-achieve-long-term-cache/
+// webpack-md5-hash不需要再使用了 https://sebastianblade.com/using-webpack-to-achieve-long-term-cache/
 // const WebpackMd5Hash = require('webpack-md5-hash')
 const utils = require('./utils')
 const globalConfig = require('./globalConfig')
@@ -14,7 +14,7 @@ const devServer = require('./devServer')
 let chunks = ['vendor', 'common']
 // const CompressionPlugin = require('compression-webpack-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
-//在 vscode 上显示webpack进度 需要在vscode上安装插件webpack-progress
+// 在 vscode 上显示webpack进度 需要在vscode上安装插件webpack-progress
 const BitBarWebpackProgressPlugin = require('bitbar-webpack-progress-plugin')
 const ProgressPlugin = require('progress-webpack-plugin')
 
@@ -29,20 +29,25 @@ let plugins = [
     'process.env.NODE_ENV': JSON.stringify(NODE_ENV),
     '__DEV__': JSON.stringify(__DEV__)
   }),
-  // 抽离公共部分, 要了解CommonsChunkPlugin的原理, 首先要搞清楚chunk的概念
-  // CommonsChunkPlugin做的其实就是把公共模块抽出来, 可以单独生成一个新的文件, 也可以附加到已有的chunk上
-  // 同时还会加上webpack的runtime相关代码
+  // split vendor js into its own file
   new webpack.optimize.CommonsChunkPlugin({
     name: 'common',
-    filename: 'js/common.js',
-    // 这个函数决定哪些模块会被放到vender.min.js中
-    minChunks: module => /node_modules/.test(module.resource)
+    filename: `js/[name]${!__DEV__ ? '.min' : ''}.js`,
+    minChunks (module, count) {
+      // any required modules inside node_modules are extracted to vendor
+      return (
+        // module.resource &&
+        // /\.js$/.test(module.resource) &&
+        /node_modules/.test(module.resource) &&
+        !/qrcode/i.test(module.resource)
+      )
+    }
   }),
   new CopyWebpackPlugin([
     { from: 'src/assets', to: 'assets' }
   ]),
   // new ExtractTextPlugin('style/[name].[contenthash:8].css'),
-  new ExtractTextPlugin('css/[name].css'),
+  new ExtractTextPlugin('css/[name].css')
 ]
 
 if (__DEV__) {
@@ -55,11 +60,11 @@ if (__DEV__) {
       options: {
         context: '/'
       }
-    }),
+    })
     // new webpack.SourceMapDevToolPlugin(
     //     {}
     // ),
-    //现在使用rules做sourcemap 此插件会导致变卡
+    // 现在使用rules做sourcemap 此插件会导致变卡
     // new webpack.optimize.UglifyJsPlugin({
     //     sourceMap: true
     // })
@@ -90,10 +95,10 @@ if (__DEV__) {
         // 内嵌定义了但是只用到一次的变量
         collapse_vars: true,
         // 提取出出现多次但是没有定义成变量去引用的静态值
-        reduce_vars: true,
+        reduce_vars: true
       }
     }),
-    //提取Loader定义到同一地方
+    // 提取Loader定义到同一地方
     new webpack.LoaderOptionsPlugin({
       minimize: true,
       debug: false,
@@ -101,7 +106,7 @@ if (__DEV__) {
         context: '/'
       }
     }),
-    new webpack.optimize.AggressiveMergingPlugin() //Merge chunks
+    new webpack.optimize.AggressiveMergingPlugin() // Merge chunks
   ])
 }
 module.exports = plugins

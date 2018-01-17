@@ -1,20 +1,32 @@
-// /**
-//  * 程序的入口
-//  */
-// // import 'babel-polyfill' //es6
-// import React from 'react'
-// import update from 'react-addons-update'
-// //追加功能库 用来操作多层state
-// React.AddonsUpdate = update
-// import ReactDOM from 'react-dom'
-// import { Router, Route, IndexRoute, hashHistory } from 'react-router'
-// //页面
-// import DemoRoute from '@/routes/Demo'
-// // 路由表
-// const routes = (
-//     <Router history={hashHistory}>
-//         {/*<IndexRoute component={DemoRoute} />*/}
-//         <Route path="/" component={DemoRoute} />
-//     </Router>
-// )
-// ReactDOM.render(routes, document.getElementById('root'))
+// import * as QRCode from 'qrcode'
+/* eslint-disable */
+(() => {
+   System.import(/* webpackChunkName: "qrcode23232" */ 'qrcode').then((QRCode)=>{
+  const qrcodeDom = document.getElementById('qrcode')
+  qrcodeDom.title = '点击关闭二维码'
+  qrcodeDom.onclick = (e) => {
+    qrcodeDom.style.display = 'none'
+  }
+
+  function refreshQRCode(url) {
+    qrcodeDom.style.display = 'inline-block'
+    qrcodeDom.style.border = '3px solid green'
+    QRCode.toCanvas(qrcodeDom, url, (error) => {
+      if (error) console.error(error)
+      console.log('success!')
+    })
+
+  }
+
+  const htmlContainer = document.getElementsByClassName('html-container')[0]
+  const links = htmlContainer.querySelectorAll('.html-item a.link')
+  Array.prototype.slice.apply(links).forEach(n => {
+    const href = n.getAttribute('data-href')
+    const target = n.getAttribute('target')
+    n.onclick = () => {
+      window.open(href, target)
+      refreshQRCode(location.origin + '/' + href.replace(/\\/g, '/'))
+    }
+  })
+  })
+})()
