@@ -5352,18 +5352,20 @@ react-dom@^15.6.2:
     object-assign "^4.1.0"
     prop-types "^15.5.10"
 
-react-hot-api@^0.4.5:
-  version "0.4.7"
-  resolved "http://registry.npm.taobao.org/react-hot-api/download/react-hot-api-0.4.7.tgz#a7e22a56d252e11abd9366b61264cf4492c58171"
-
-react-hot-loader@^1.3.1:
-  version "1.3.1"
-  resolved "http://registry.npm.taobao.org/react-hot-loader/download/react-hot-loader-1.3.1.tgz#c95647ae78b73dfceff6ec71ffcb04182ff6daf9"
+react-hot-api@^0.5.0-alpha-3:
+  version "0.5.0"
+  resolved "http://registry.npm.taobao.org/react-hot-api/download/react-hot-api-0.5.0.tgz#16ce3473fae1c635f9f09d29cb05b493552327d7"
   dependencies:
-    react-hot-api "^0.4.5"
+    react-proxy "^1.0.0"
+
+react-hot-loader@^2.0.0-alpha-4:
+  version "2.0.0-alpha-4"
+  resolved "http://registry.npm.taobao.org/react-hot-loader/download/react-hot-loader-2.0.0-alpha-4.tgz#456482075c71fe78954331ad7338d659e25567ad"
+  dependencies:
+    react-hot-api "^0.5.0-alpha-3"
     source-map "^0.4.4"
 
-react-proxy@^1.1.7:
+react-proxy@^1.0.0, react-proxy@^1.1.7:
   version "1.1.8"
   resolved "http://registry.npm.taobao.org/react-proxy/download/react-proxy-1.1.8.tgz#9dbfd9d927528c3aa9f444e4558c37830ab8c26a"
   dependencies:
