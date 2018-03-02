@@ -2,23 +2,36 @@
  * 因为css module设置比较复杂,单独分离出来
  */
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const { postCSSConfig } = require('./utils')
+const {
+  postCSSConfig
+} = require('./utils')
 let _ExtractTextPlugin = ExtractTextPlugin
 
 /**
  * cssModules 启用antdcss modules
  * false 是否分离样式文件
  */
-module.exports.getCssRules = ({ __DEV__, cssModules = true, extract = true }) => {
+module.exports.getCssRules = ({
+  __DEV__,
+  cssModules = true,
+  extract = true
+}) => {
   if (!extract) {
     _ExtractTextPlugin = {
-      extract: ({ use }) => {
+      extract: ({
+        use
+      }) => {
         return use
       }
     }
   }
   const localIdentName = '[name]__[local]___[hash:base64:5]'
-  const styleLoader = { loader: 'style-loader', options: { sourceMap: true } }
+  const styleLoader = {
+    loader: 'style-loader',
+    options: {
+      sourceMap: true
+    }
+  }
   const postCSSLoader = {
     loader: 'postcss-loader',
     options: {
@@ -32,7 +45,10 @@ module.exports.getCssRules = ({ __DEV__, cssModules = true, extract = true }) =>
       importLoaders: 2,
       modules: cssModules,
       localIdentName,
-      minimize: !__DEV__,
+      // minimize: !__DEV__,
+      // 压缩由loaderOption Plugin控制这里统一为 false
+      // 否则会出现丢失 display:-webkit-flex;问题
+      minimize: false,
       sourceMap: true
     }
   }
@@ -43,7 +59,7 @@ module.exports.getCssRules = ({ __DEV__, cssModules = true, extract = true }) =>
       loader: {
         loader: 'less-loader',
         options: {
-          sourceMap: true,
+          sourceMap: true
         }
       }
     },
@@ -53,15 +69,18 @@ module.exports.getCssRules = ({ __DEV__, cssModules = true, extract = true }) =>
         loader: 'stylus-loader',
         options: {
           options: {
-            sourceMap: true,
-          },
+            sourceMap: true
+          }
         }
       }
     }
   }
 
   let getReulsByType = (type) => {
-    const { reg, loader } = regMap[type]
+    const {
+      reg,
+      loader
+    } = regMap[type]
     const getCssLoaderInstance = () => {
       return {
         test: reg,
@@ -76,15 +95,14 @@ module.exports.getCssRules = ({ __DEV__, cssModules = true, extract = true }) =>
         })
       }
     }
-    return [
-      {
-        ...getCssLoaderInstance(),
-        include: /node_modules/, //针对 node_modeuls里面的less文件
-      },
-      {
-        ...getCssLoaderInstance(),
-        exclude: /node_modules/, //针对 非 node_modeuls里面的css文件
-      }
+    return [{
+      ...getCssLoaderInstance(),
+      include: /node_modules/ // 针对 node_modeuls里面的less文件
+    },
+    {
+      ...getCssLoaderInstance(),
+      exclude: /node_modules/ // 针对 非 node_modeuls里面的css文件
+    }
     ]
   }
   return [
