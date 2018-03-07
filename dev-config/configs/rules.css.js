@@ -86,6 +86,7 @@ module.exports.getCssRules = ({
         test: reg,
         use: _ExtractTextPlugin.extract({
           fallback: styleLoader,
+          publicPath: extract ? '../' : '',
           use: [
             ...(extract ? [] : [styleLoader]),
             cssLoader,
