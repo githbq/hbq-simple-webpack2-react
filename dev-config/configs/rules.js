@@ -1,10 +1,12 @@
 /**
  * 文件处理
  */
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const { TEMPLATE_PATH, PUBLIC_PATH, ROOT_PATH, APP_PATH, BUILD_PATH, NODE_ENV, __DEV__ } = require('./constants')
-const lessLoaderVars = {}
-const { getCssRules } = require('./rules.css')
+const {
+  __DEV__
+} = require('./constants')
+const {
+  getCssRules
+} = require('./rules.css')
 
 let rules = [ // 定义各种loader
   {
@@ -16,14 +18,12 @@ let rules = [ // 定义各种loader
   },
   {
     test: /\.jsx?$/,
-    use: [
-      {
-        loader: 'eslint-loader',
-        options: {
-          fix: true
-        }
+    use: [{
+      loader: 'eslint-loader',
+      options: {
+        fix: true
       }
-    ],
+    }],
     exclude: /(node_modules)/,
     enforce: 'pre'
   },
@@ -32,7 +32,7 @@ let rules = [ // 定义各种loader
     cssModules: false,
     extract: !__DEV__
   }),
-  //files
+  // files
   {
     test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
     loader: 'url-loader',
@@ -63,25 +63,28 @@ if (__DEV__) {
   rules.push({
     test: /\.jsx?$/,
     exclude: /(node_modules)/,
-    use: [
-      { loader: 'react-hot-loader' },
+    use: [{
+        loader: 'react-hot-loader'
+      },
       {
         loader: 'babel-loader'
       }
     ]
   })
 } else {
-  //生产环境
+  // 生产环境
   rules.push({
     test: /\.jsx?$/,
     exclude: /(node_modules)/,
     use: [{
-      loader: 'babel-loader'
-    },
-    {
-      loader: 'strip-loader',
-      options: { strip: ['logger.info', 'logger.debug', 'console.log', 'console.debug'] }
-    }
+        loader: 'babel-loader'
+      },
+      {
+        loader: 'strip-loader',
+        options: {
+          strip: ['logger.info', 'logger.debug', 'console.log', 'console.debug']
+        }
+      }
     ]
   })
 }
